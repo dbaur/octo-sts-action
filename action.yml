@@ -35,6 +35,14 @@ inputs:
       .github/chainguard/{identity}.sts.yaml
     required: true
 
+  github-api-url:
+    description: |
+      Base URL of the GitHub API used to revoke the minted token when the job
+      finishes. Defaults to the API URL of the server running the workflow, so
+      GitHub Enterprise Server instances revoke against themselves rather than
+      against api.github.com. Override only to target a different API endpoint.
+    default: ${{ github.api_url }}
+
 outputs:
   token:
     description: |
